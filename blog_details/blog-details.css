@@ -171,6 +171,7 @@
     font-size: 1.6rem;
   }
   .blog-meta {
+    flex-direction: column-reverse;
     justify-content: space-between;
     padding: 0 2rem;
   }
