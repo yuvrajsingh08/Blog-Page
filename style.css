@@ -24,6 +24,7 @@
     background-color: var(--background);
 }
 
+
 .blog-section {
     width: 100%;
     display: flex;
@@ -41,6 +42,8 @@
   color: var(--text-color);
   position: relative;
 }
+
+
 .blog-container {
   display: inline-grid;
   grid-template-columns: auto auto auto;
@@ -53,7 +56,7 @@
   width: 100%;
   max-width: 23.75rem; 
   min-width: 16rem;     
-  max-height: 33.75rem; 
+  max-height: 30rem; 
   height: 100%;
   border-radius: 0.9rem; 
   box-shadow: 0 5px 20px 12px rgba(0, 0, 0, 0.09);
@@ -88,7 +91,7 @@
 
 .blog-summary {
   color: var(--muted-text);
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 1px;
   font-weight: 500;
   padding: 0 1rem;
@@ -119,6 +122,52 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+
+.blog-first-row {
+   display: inline-grid;
+   grid-template-columns: 2fr 1fr;
+   gap: 2.5rem;
+   margin: 0 auto;
+   padding: 0 1rem;
+   margin-bottom: 2rem;
+}
+
+
+.blog-first-card-1 {
+  display: flex;
+  max-width: 50rem; 
+}
+.blog-first-card-1  img {
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.blog-first-card-1 .blog-author {
+    display: flex;
+    width: 60%;
+    justify-content:space-between;
+    align-items: center;
+    padding: 1rem 1.4rem;
+    margin-top: 1rem;
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    position: absolute;
+    background-color: var(--background);
+    bottom: 0%;
+    right: 0%;
+    z-index: 10;
+}
+
+.blog-first-card-2 .blog-summary{
+  display: none;
+}
+
+.blog-first-card-2 .blog-author {
+    position: relative;
 }
 
 .pagination {
@@ -169,12 +218,45 @@
   .blog-container {
     grid-template-columns: auto auto;
   }
+  
+  .blog-first-row {
+   grid-template-columns: auto auto;
+  }
+
+
+.blog-first-card-1 {
+  /* background-color: red; */
+  display: block;
+  width: 100%;
+  max-width: 23.75rem; 
+  min-width: 16rem;     
+  max-height: 30rem; 
+}
+.blog-first-card-1  img {
+    width: 100%;
+    height: 200px;
+}
+
+.blog-first-card-1 .blog-author {
+    width: 100%;
+}
+
+.blog-first-card-2 .blog-summary{
+  display: block;
+}
+
+.blog-first-card-2 .blog-author {
+    position: absolute;
+}
 }
 
 
 @media (max-width: 768px) {
   .blog-container {
     grid-template-columns: auto;
+  }
+  .blog-first-row {
+   grid-template-columns: auto;
   }
   .blog-summary {
     display: none;
@@ -185,4 +267,12 @@
   .blog-heading {
     display: block;
   }
+  .blog-first-row .blog-summary{
+    display: none;
+  }
+
+  .blog-first-row .blog-author {
+    position: relative;
+  }
+  
 }
