@@ -24,6 +24,19 @@
     background-color: var(--background);
 }
 
+.blog-title {
+  position: relative;
+}
+
+.underline {
+  position: absolute;
+  top: 56%;
+  left:-4%;
+  /* background-color: red; */
+  transform: rotate(6deg);
+  width: 280px;
+}
+
 
 .blog-section {
     width: 100%;
@@ -34,13 +47,16 @@
     margin: auto;
 }
 
-.blog-title {
+.blog-title .blog-heading {
   text-align: center;
-  font-size: 48px;
-  font-weight:bolder;
+  font-size: 80px;
+  font-weight:600;
+  margin-top: 30px;
   margin-bottom: 30px;
   color: var(--text-color);
   position: relative;
+  z-index: 2;
+  letter-spacing: 8px;
 }
 
 
@@ -254,6 +270,16 @@
 @media (max-width: 768px) {
   .blog-container {
     grid-template-columns: auto;
+  }
+  .underline {
+    width: 210px;
+    top: 48%;
+    transform: rotate(4deg);
+  }
+  .blog-title .blog-heading {
+    font-size: 60px;
+    font-weight: 400;
+    margin-bottom: 60px;
   }
   .blog-first-row {
    grid-template-columns: auto;
