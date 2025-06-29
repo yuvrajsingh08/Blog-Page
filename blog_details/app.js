@@ -1,6 +1,5 @@
 const tocLinks = document.querySelectorAll('.toc-link');
 const sections = document.querySelectorAll('.blog-content section');
-console.log("section", sections)
 
 window.addEventListener('scroll', () => {
   let currentSectionId = '';

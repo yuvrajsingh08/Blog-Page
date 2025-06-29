@@ -3,7 +3,6 @@ const blogfirstrow = document.getElementById('blog-first-row');
 const pagination = document.getElementById('pagination');
 const pagination_numbers = document.querySelector('.pagination-numbers');
 const itemsPerPage = 14;
-// let currentPage = 1;
 const urlParams = new URLSearchParams(window.location.search);
 let currentPage = parseInt(urlParams.get('page')) || 1;
 
@@ -15,17 +14,17 @@ function displayBlogs(page) {
   const paginatedItems = blogData.slice(start, end);
   
   paginatedItems.forEach((blog, index) => {
-    const card = document.createElement('div');
+    const card = document.createElement('article');
     card.classList.add('blog-card');
     card.onclick = () => {
       window.location.href = `./blog_details/blog-detail.html?id=${blog.id}`;
     };
     card.innerHTML = `
-          <img src=${blog.image_url} alt="Blog image"/>
+          <img src=${blog.image_url} alt=${blog.title}/>
           <div>
               <div class="blog-meta"><i class="bi bi-calendar-event"></i>${blog.date}</div>
               <div>
-                <h3 class="blog-heading"> ${blog.title} </h3>
+                <h2 class="blog-heading"> ${blog.title} </h2>
                 <p class="blog-summary"> ${blog.summary} </p>
               </div>
               <div class="blog-author">
@@ -36,10 +35,7 @@ function displayBlogs(page) {
                 <i class="bi bi-arrow-right-circle"></i>
               </div>
          </div>`;
-
-    console.log("index h->", index)
     if(index < 2) {
-      console.log("first h->", index)
       card.classList.add(`blog-first-card-${index+1}`);
       blogfirstrow.appendChild(card)
     }
@@ -52,7 +48,6 @@ function displayBlogs(page) {
 function setupPagination() {
     pagination_numbers.innerHTML = "";
   const pageCount = Math.ceil(blogData.length / itemsPerPage);
-    console.log(pageCount)
   const prev = document.querySelector('.prev');
   prev.disabled = currentPage === 1;
     
@@ -84,7 +79,6 @@ function setupPagination() {
 
     const next = document.querySelector('.next');
     next.disabled = currentPage === pageCount;
-    // console.log("hello", next)
     next.onclick = () => {
     if (currentPage < pageCount) {
       currentPage++;
@@ -94,7 +88,6 @@ function setupPagination() {
       history.pushState({}, '', url);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    // console.log("click me")
     };
     
 }
@@ -106,7 +99,3 @@ function updatePage() {
 
 // Initialize
 updatePage();
-
-
-
-c
